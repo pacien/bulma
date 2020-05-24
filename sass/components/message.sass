@@ -42,6 +42,8 @@ $message-colors: $colors !default
     $color-invert: nth($components, 2)
     $color-light: null
     $color-dark: null
+    $filter-light: null
+    $filter-dark: null
 
     @if length($components) >= 3
       $color-light: nth($components, 3)
@@ -49,21 +51,25 @@ $message-colors: $colors !default
         $color-dark: nth($components, 4)
       @else
         $color-luminance: colorLuminance($color)
-        $darken-percentage: $color-luminance * 70%
-        $desaturate-percentage: $color-luminance * 30%
-        $color-dark: desaturate(darken($color, $darken-percentage), $desaturate-percentage)
+        $brightness-percentage: 100% - $color-luminance * 70%
+        $saturate-percentage: 100% - $color-luminance * 30%
+        $color-dark: $color
+        $filter-dark: saturate($saturate-percentage) brightness($brightness-percentage)
     @else
       $color-lightning: max((100% - lightness($color)) - 2%, 0%)
-      $color-light: lighten($color, $color-lightning)
+      $color-light: $color
+      $filter-light: brightness($color-lightning)
 
     &.is-#{$name}
       background-color: $color-light
+      filter: $filter-light
       .message-header
         background-color: $color
         color: $color-invert
       .message-body
         border-color: $color
         color: $color-dark
+        filter: $filter-dark
 
 .message-header
   align-items: center

@@ -103,8 +103,3 @@
   @if type-of($color) != 'color'
     @return $color
   @return rgba($color, $alpha)
-
-@function bulmaDarken($color, $amount)
-  @if type-of($color) != 'color'
-    @return $color
-  @return darken($color, $amount)

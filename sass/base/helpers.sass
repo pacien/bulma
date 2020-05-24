@@ -101,7 +101,8 @@ $alignments: ('centered': 'center', 'justified': 'justify', 'left': 'left', 'rig
   a.has-text-#{$name}
     &:hover,
     &:focus
-      color: bulmaDarken($color, 10%) !important
+      color: $color !important
+      filter: brightness(90%)
   .has-background-#{$name}
     background-color: $color !important
 

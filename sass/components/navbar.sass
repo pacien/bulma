@@ -72,7 +72,8 @@ $navbar-breakpoint: $desktop !default
           &:focus,
           &:hover,
           &.is-active
-            background-color: bulmaDarken($color, 5%)
+            background-color: $color
+            filter: brightness(95%)
             color: $color-invert
         .navbar-link
           &::after
@@ -90,7 +91,8 @@ $navbar-breakpoint: $desktop !default
             &:focus,
             &:hover,
             &.is-active
-              background-color: bulmaDarken($color, 5%)
+              background-color: $color
+              filter: brightness(95%)
               color: $color-invert
           .navbar-link
             &::after
@@ -98,7 +100,8 @@ $navbar-breakpoint: $desktop !default
         .navbar-item.has-dropdown:focus .navbar-link,
         .navbar-item.has-dropdown:hover .navbar-link,
         .navbar-item.has-dropdown.is-active .navbar-link
-          background-color: bulmaDarken($color, 5%)
+          background-color: $color
+          filter: brightness(95%)
           color: $color-invert
         .navbar-dropdown
           a.navbar-item

@@ -117,9 +117,11 @@ $tag-delete-margin: 1px !default
       width: 1px
     &:hover,
     &:focus
-      background-color: darken($tag-background-color, 5%)
+      background-color: $tag-background-color
+      filter: brightness(95%)
     &:active
-      background-color: darken($tag-background-color, 10%)
+      background-color: $tag-background-color
+      filter: brightness(90%)
   &.is-rounded
     border-radius: $radius-rounded
 
